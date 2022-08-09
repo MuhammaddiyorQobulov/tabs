@@ -1,0 +1,19 @@
+table {
+  width: 80%;
+  text-align: center;
+  border-collapse: collapse;
+  thead {
+    tr {
+      th {
+        border: 1px solid;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        border: 1px solid;
+      }
+    }
+  }
+}
