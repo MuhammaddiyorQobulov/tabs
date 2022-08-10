@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #011627;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .app {
+    display: flex;
+    gap: 50px;
+  }
+}
+
+:root {
+  --disabled: auto;
+}

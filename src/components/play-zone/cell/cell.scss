@@ -1,0 +1,19 @@
+.cell {
+  width: 150px;
+  height: 150px;
+  display: grid;
+  place-items: center;
+  background-color: white;
+  pointer-events: var(--disabled);
+  &:hover {
+    background-color: gainsboro;
+  }
+  span {
+    .x-icon {
+      fill: red;
+    }
+    .o-icon {
+      fill: blue;
+    }
+  }
+}
