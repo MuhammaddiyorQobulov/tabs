@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PlayZone from "./components/play-zone/play-zone";
 import SelectIcon from "./components/select-icon/select-icon";
 
-let total = 0;
 let icon = null;
 class App extends Component {
   state = {
@@ -10,9 +9,10 @@ class App extends Component {
     values: new Array(9).fill(null),
     x: 0,
     o: 0,
+    total: null,
   };
   compareCells = (a, b, c) => {
-    const { values } = this.state;
+    const { values, x, o } = this.state;
 
     if (
       values[a - 1] === values[b - 1] &&
@@ -20,9 +20,11 @@ class App extends Component {
       values[a - 1] !== null
     ) {
       if (values[a - 1] === true) {
-        total = true;
+        this.setState({ x: x + 1, total: true });
+        return;
       } else if (values[a - 1] === false) {
-        total = false;
+        this.setState({ o: o + 1, total: true });
+        return;
       }
     }
   };
@@ -36,8 +38,6 @@ class App extends Component {
       this.compareCells(3, 6, 9) ||
       this.compareCells(1, 5, 9) ||
       this.compareCells(3, 5, 7);
-
-    return total;
   };
 
   handleSelect = (a, id) => {
@@ -45,6 +45,7 @@ class App extends Component {
     values[id] = !a;
     this.setState(this.state);
     this.setState({ step: a });
+    this.findWinner();
   };
   selectIcon = (value) => {
     this.setState({ step: value });
@@ -52,22 +53,19 @@ class App extends Component {
   };
 
   handleRestart = () => {
-    this.setState({ values: new Array(9).fill(null), step: icon });
+    this.setState({ values: new Array(9).fill(null), step: icon, total: null });
   };
 
   render() {
-    const { values, step } = this.state;
+    const { values, step, total } = this.state;
     let { x, o } = this.state;
-    const { handleSelect, selectIcon, findWinner, handleRestart } = this;
+    const { handleSelect, selectIcon, handleRestart } = this;
     setTimeout(() => {
       !values.includes(null) && alert("Tugadi");
     }, 0);
 
-    console.log(findWinner());
     return (
-      <div
-        className="app" // style={{"--disabled": values.includes(false) && "none",}}
-      >
+      <div className="app">
         {step === null ? (
           <SelectIcon selectIcon={selectIcon} />
         ) : (
@@ -78,6 +76,7 @@ class App extends Component {
             values={values}
             step={step}
             onRestart={handleRestart}
+            disabled={total}
           />
         )}
       </div>

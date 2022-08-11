@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./cell.scss";
-const Cell = ({ value, id, step, onSelect }) => {
+const Cell = ({ value, id, step, onSelect, disabled }) => {
   const [state, setState] = useState(null);
 
   setTimeout(() => {
@@ -10,7 +10,6 @@ const Cell = ({ value, id, step, onSelect }) => {
   const handleValue = () => {
     setState(step ? xIcon : oIcon);
   };
-
   return (
     <div
       className="cell"
@@ -20,6 +19,7 @@ const Cell = ({ value, id, step, onSelect }) => {
       }}
       style={{
         pointerEvents: state && "none",
+        "--disabled": disabled && "none",
       }}
     >
       <span>{state}</span>

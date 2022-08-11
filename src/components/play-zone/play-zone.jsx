@@ -6,7 +6,7 @@ import "./play-zone.scss";
 
 class PlayZone extends Component {
   render() {
-    const { values, step, onSelect, x, o, onRestart } = this.props;
+    const { values, step, onSelect, x, o, onRestart,disabled } = this.props;
 
     return (
       <>
@@ -18,6 +18,7 @@ class PlayZone extends Component {
               onSelect={onSelect}
               value={value}
               step={step}
+              disabled={disabled}
             />
           ))}
         </div>
