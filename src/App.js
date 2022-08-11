@@ -54,7 +54,11 @@ class App extends Component {
     this.findWinner();
   };
   selectIcon = (value) => {
-    this.setState({ step: value, values: new Array(9).fill(null) });
+    this.setState({
+      step: value,
+      values: new Array(9).fill(null),
+      total: null,
+    });
     icon = value;
   };
 
