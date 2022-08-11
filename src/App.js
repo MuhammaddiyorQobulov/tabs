@@ -23,13 +23,13 @@ class App extends Component {
         this.setState({ x: x + 1, total: true });
         setTimeout(() => {
           alert("X-player Win !!! ");
-        }, 0);
+        }, 5);
         return;
       } else if (values[a - 1] === false) {
         this.setState({ o: o + 1, total: true });
         setTimeout(() => {
           alert("O-player Win !!! ");
-        }, 0);
+        }, 5);
         return;
       }
     }
