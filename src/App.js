@@ -63,8 +63,6 @@ class App extends Component {
       values: new Array(9).fill(null),
       step: icon,
       total: null,
-      x: 0,
-      o: 0,
     });
   };
 
