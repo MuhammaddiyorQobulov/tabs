@@ -48,8 +48,7 @@ class App extends Component {
     this.findWinner();
   };
   selectIcon = (value) => {
-    this.setState({ step: value });
-    icon = value;
+    this.setState({ step: value, values: new Array(9).fill(null) });
   };
 
   handleRestart = () => {
@@ -73,6 +72,7 @@ class App extends Component {
             x={x}
             o={o}
             onSelect={handleSelect}
+            selectIcon={selectIcon}
             values={values}
             step={step}
             onRestart={handleRestart}

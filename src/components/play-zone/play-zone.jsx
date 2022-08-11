@@ -6,7 +6,8 @@ import "./play-zone.scss";
 
 class PlayZone extends Component {
   render() {
-    const { values, step, onSelect, x, o, onRestart,disabled } = this.props;
+    const { values, step, onSelect, x, o, onRestart, disabled, selectIcon } =
+      this.props;
 
     return (
       <>
@@ -56,6 +57,9 @@ class PlayZone extends Component {
             onClick={() => onRestart()}
           >
             Restart
+          </button>
+          <button className="restart-btn" onClick={() => selectIcon(null)}>
+            Select Icon
           </button>
         </div>
       </>
