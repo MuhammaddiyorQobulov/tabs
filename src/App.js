@@ -55,6 +55,7 @@ class App extends Component {
   };
   selectIcon = (value) => {
     this.setState({ step: value, values: new Array(9).fill(null) });
+    icon = value;
   };
 
   handleRestart = () => {
