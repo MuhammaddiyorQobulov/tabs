@@ -21,9 +21,15 @@ class App extends Component {
     ) {
       if (values[a - 1] === true) {
         this.setState({ x: x + 1, total: true });
+        setTimeout(() => {
+          alert("X-player Win !!! ");
+        }, 0);
         return;
       } else if (values[a - 1] === false) {
         this.setState({ o: o + 1, total: true });
+        setTimeout(() => {
+          alert("O-player Win !!! ");
+        }, 0);
         return;
       }
     }
@@ -52,7 +58,13 @@ class App extends Component {
   };
 
   handleRestart = () => {
-    this.setState({ values: new Array(9).fill(null), step: icon, total: null });
+    this.setState({
+      values: new Array(9).fill(null),
+      step: icon,
+      total: null,
+      x: 0,
+      o: 0,
+    });
   };
 
   render() {
